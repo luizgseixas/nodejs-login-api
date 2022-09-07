@@ -1,0 +1,14 @@
+GET http://localhost:3333/
+
+###
+
+GET http://localhost:3333/batatinha?offset=10&limit=20
+
+###
+
+POST http://localhost:3333/batatinha?offset=10&limit=20
+content-type: application/json
+
+{
+  "message": "me dá uma batatinha"
+}
