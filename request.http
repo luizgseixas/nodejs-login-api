@@ -2,13 +2,20 @@ GET http://localhost:3333/
 
 ###
 
-GET http://localhost:3333/batatinha?offset=10&limit=20
+GET http://localhost:3333/user/1
 
 ###
 
-POST http://localhost:3333/batatinha?offset=10&limit=20
+GET http://localhost:3333/users
+
+###
+
+POST http://localhost:3333/user
 content-type: application/json
 
 {
-  "message": "me dá uma batatinha"
+  "name": "Luiz Seixas",
+  "email": "luiz2@mail.com",
+  "password": "1234",
+  "passwordConfirmation": "1234"
 }
