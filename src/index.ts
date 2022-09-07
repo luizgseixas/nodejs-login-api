@@ -27,7 +27,12 @@ class ExampleError extends Error {
   }
 };
 
-let users: IUser[] = [];
+let users: IUser[] = [{
+  id: 1,
+  name: "Luiz Seixas",
+  email: "luiz@mail.com",
+  password: "1234",
+}];
 
 server.get('/', (req: Request, res: Response) => {
   res.json({ message: 'Hello World!' })
@@ -37,14 +42,14 @@ server.get('/user/:id', (req: Request, res: Response) => {
   try {
     const { id } = req.params
 
-  const user = users.find(user => user.id === Number(id));
+    const user = users.find(user => user.id === Number(id));
 
-  if (!user) throw new ExampleError('Usuário não encontrado', 404);
+    if (!user) throw new ExampleError('Usuário não encontrado', 404);
 
-  res.status(200).json(user)
+    res.status(200).json(user)
   } catch (err) {
-    console.error(err)
-    res.status(err.statusCode).json({ message: err.message });
+    console.error(err);
+    res.status(err.statusCode).json({ error: err.message, statusCode: err.statusCode });
   }
 })
 
@@ -54,7 +59,7 @@ server.get('/users', (req: Request, res: Response) => {
     res.json(users)
   } catch (err) {
     console.error(err);
-    res.status(err.statusCode).json({ message: err.message });
+    res.status(err.statusCode).json({ error: err.message, statusCode: err.statusCode });
   }
 })
 
@@ -84,7 +89,7 @@ server.post('/user', (req: Request, res: Response) => {
 
   } catch (err) {
     console.error(err);
-    res.status(err.statusCode).json({ message: err.message });
+    res.status(err.statusCode).json({ error: err.message, statusCode: err.statusCode });
   }
 
 })

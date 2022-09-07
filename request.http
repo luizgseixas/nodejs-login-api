@@ -2,7 +2,7 @@ GET http://localhost:3333/
 
 ###
 
-GET http://localhost:3333/user/1
+GET http://localhost:3333/user/2
 
 ###
 
