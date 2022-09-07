@@ -2,22 +2,55 @@ interface IRequester {
   getUrl: () => void;
 }
 
+interface IRepository {
+  save: (user) => void;
+}
+
+class UserRepositoryMongo implements IRepository {
+  save(user) {
+    this.mongodb.save()
+  }
+
+  get() {}
+}
+
+class UserRepositoryMysql implements IRepository {
+  save(user) {
+    this.mysql.save()
+  }
+}
+
+class SaveUser {
+  repository: IRepository
+  constructor(repository: IRepository) {
+    this.repository = repository
+  }
+
+  save(user) {
+    this.repository.save(user)
+  }
+}
+
+new SaveUser(new UserRepositoryMysql())
+
 class Requester implements IRequester {
   public name: string;
   private url: string;
-  public peso: string;
+  static peso: string;
+  private apiKey: string;
 
-  constructor(url: string) {
-    this.url = url
+  constructor(batatinha: string) {
+    this.name = batatinha;
   }
 
   static sayHello() {
     console.log('Hello')
   }
 
-  getUrl() {
-    console.log(this.url)
-  }
+  getUrl (): void {
+    console.log(this.url);
+  };
+
 }
 
 class NewRequester extends Requester {
@@ -30,7 +63,7 @@ const n = new NewRequester('batatinha.com.br')
 
 n.getUrl()
 
-const c = new Requester('batatinha.com.br');
+const c = new Requester('htpp://localhost:3333');
 
 c.getUrl()
 
