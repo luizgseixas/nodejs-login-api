@@ -78,9 +78,13 @@ server.post('/user', (req: Request, res: Response) => {
     const newUser = Object.assign(body, { id: idIncrement });
 
     // validação se usuário já está cadastrado
-    const alreadyRegistered = users.find(user => {
-      if (newUser.email === user.email) return true;
-    })
+    // método "some" verifica se ao menos um valor do array passa no test implementado
+    const alreadyRegistered = users.some(user => user.email === newUser.email);
+
+    // Forma antiga de validar
+    // const alreadyRegistered = users.find(user => {
+    //   if (newUser.email === user.email) return true;
+    // })
 
     if (alreadyRegistered) throw new ExampleError('Usuário já cadastado', 400);
 
