@@ -1,0 +1,1 @@
+Project developed together with fellow beginners, in order to teach them the fundamentals of the backend
