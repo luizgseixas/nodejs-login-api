@@ -5,6 +5,7 @@
     "module": "commonjs",
     "allowJs": true,
     "rootDir": "./src",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "strictNullChecks": false
   }
 }
