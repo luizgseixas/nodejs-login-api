@@ -37,13 +37,15 @@ export class UsersRepositoryInMemory {
   findById (id: number): IUser | null {
     const user = this.users.find(user => user.id === id);
 
-    return user;
+    if (user) return user;
+    return null;
   }
 
   findByEmail (email: string): IUser | null {
     const user = this.users.find(user => user.email === email);
 
-    return user;
+    if (user) return user;
+    return null;
   }
 
   findAll (): IUser[] {

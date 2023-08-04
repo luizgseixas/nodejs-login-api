@@ -12,7 +12,7 @@ export class GetUserByIdController {
       const user = this.getUserByIdUseCase.execute(Number(id));
 
       res.status(200).json(user);
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
       res.status(err.statusCode).json({ error: err.message, statusCode: err.statusCode });
     }
