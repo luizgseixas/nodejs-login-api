@@ -19,7 +19,7 @@ jobs:
       - name: Set timezone
         uses: zcong1993/setup-timezone@master
         with:
-          timezone: America/Sao_Paulo
+          timezone: Asia/Shanghai
 
       - name: Using Node.js
         uses: actions/setup-node@v2
