@@ -19,11 +19,11 @@ jobs:
       - name: run install and build
         run: |
           npm install
-          npm build
+          npm run build
 
       - name: test coverage
         run: |
-          npm test:cov
+          npm run test:cov
 
       - name: validate test coverage
         run: |
