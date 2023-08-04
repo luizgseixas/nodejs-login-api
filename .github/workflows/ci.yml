@@ -10,18 +10,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Using Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14'
+
       - name: run install and build
         run: |
           npm install
-          npm run build
+          npm build
+
       - name: test coverage
       - uses: codecov/codecov-action@v2
         run: |
-          npm run test:cov
+          npm test:cov
+
       - name: validate test coverage
         run: |
           coverage=$(cat coverage/coverage-summary.json | jq -r '.total.lines.pct')
