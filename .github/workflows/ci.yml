@@ -22,7 +22,6 @@ jobs:
           npm build
 
       - name: test coverage
-      - uses: codecov/codecov-action@v2
         run: |
           npm test:cov
 
