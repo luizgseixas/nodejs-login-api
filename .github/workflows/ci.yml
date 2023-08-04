@@ -11,10 +11,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      # - name: Set timezone
+      #   uses: szenius/set-timezone@v1.2
+      #   with:
+      #     timezoneLinux: "America/Sao_Paulo"
+
       - name: Set timezone
-        uses: szenius/set-timezone@v1.2
+        uses: zcong1993/setup-timezone@master
         with:
-          timezoneLinux: "America/Sao_Paulo"
+          timezone: America/Sao_Paulo
 
       - name: Using Node.js
         uses: actions/setup-node@v2
