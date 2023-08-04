@@ -9,7 +9,7 @@ class GetUsersController {
     try {
       const users = this.getUsersUseCase.execute();
       res.json(users);
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
       res.status(err.statusCode).json({ error: err.message, statusCode: err.statusCode });
     }

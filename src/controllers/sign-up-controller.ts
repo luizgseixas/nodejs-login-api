@@ -25,7 +25,7 @@ export class SignUpController {
       this.createUserUsecase.execute(body);
 
       res.json({ message: 'Usuário cadastrado!' });
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
       res.status(err.statusCode).json({ error: err.message, statusCode: err.statusCode });
     }
