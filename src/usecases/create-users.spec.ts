@@ -9,6 +9,8 @@ describe('CreateUserUseCase', () => {
     const findSpy = jest.spyOn(repo, 'findByEmail');
     const createSpy = jest.spyOn(repo, 'create');
 
+    console.log(new Date().toLocaleDateString());
+
     sut.execute({ email: 'any_email' });
 
     expect(findSpy).toHaveBeenCalledWith('any_email');
