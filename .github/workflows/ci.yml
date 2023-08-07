@@ -13,15 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set timezone
-        uses: szenius/set-timezone@v1.2
-        with:
-          timezoneLinux: "America/Sao_Paulo"
-
       - name: Using Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14'
+
+      - name: Set timezone
+        uses: szenius/set-timezone@v1.2
+        with:
+          timezoneLinux: "America/Sao_Paulo"
 
       - name: run install and build
         run: |
