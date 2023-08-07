@@ -8,18 +8,15 @@ on:
 jobs:
   continuos-integration:
     runs-on: ubuntu-latest
+    env:
+      TZ: "America/Sao_Paulo"
     steps:
       - uses: actions/checkout@v3
 
-      # - name: Set timezone
-      #   uses: szenius/set-timezone@v1.2
-      #   with:
-      #     timezoneLinux: "America/Sao_Paulo"
-
       - name: Set timezone
-        uses: zcong1993/setup-timezone@master
+        uses: szenius/set-timezone@v1.2
         with:
-          timezone: Asia/Shanghai
+          timezoneLinux: "America/Sao_Paulo"
 
       - name: Using Node.js
         uses: actions/setup-node@v2
