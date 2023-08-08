@@ -8,6 +8,10 @@ on:
 jobs:
   continuos-integration:
     runs-on: ubuntu-latest
+    
+    env:
+      TZ: America/Sao_Paulo
+
     steps:
       - uses: actions/checkout@v3
 
@@ -33,3 +37,16 @@ jobs:
             echo "O coverage de testes é $coverage e é inferior a $min_coverage%. Abortando o pull request."
             exit 1
           fi
+
+      - name: Code Coverage Summary Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: coverage.cobertura.xml
+          format: markdown
+          # badge: true
+          # fail_below_min: true
+          # hide_branch_rate: false
+          # hide_complexity: true
+          # indicators: true
+          # output: both
+          # thresholds: '60 80'
